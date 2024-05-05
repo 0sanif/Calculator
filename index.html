@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="hello"></div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    @font-face {
+  font-family: Calc;
+  src: url(./dig.ttf);
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    center {
+        margin-top: 50px;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    input[type="text"] {
+        background: #6a7254;
+        width: 100%;
+        padding: 10px;
+        font-size: 24px;
+        text-align: right;
+        font-family:Calc;
+    }
+
+    button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        background-color: #7b7b07d2;
+    }
+
+    button:hover {
+        background-color: #f9f3f3;
+    }
+
+    .operator-buttons {
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<center>
+    <table >
+        <tr>
+            <td colspan="3">
+                <div>
+                    <input type="text" id="store">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button onclick="Reset()">C</button>
+                </div>
+            </td>
+            <td>
+                <div>
+                    
+                    <button>%</button>
+
+                </div>
+            </td>
+            
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button onclick="Removelast()" class="btn">Del</button>
+                    <button>.</button>
+                </div>
+            </td>
+            <tr>
+                <td colspan="2">
+                    <div>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>0</button>
+                        <button>=</button>
+                    </div>
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <button>/</button>
+                    <button>*</button>
+                    <button>-</button>
+                    <button>+</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div>
+                    <p>Created by Sanif</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
+
+    <script>
+        var a;
+        const store = document.getElementById("store");
+        
+        function Removelast(){
+            var input = document.getElementById("store");
+            input.value= input.value.slice(0,-1);
+            
+        }
+       
+
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', ()=> {
+             var buttonText = button.innerText;
+            if(buttonText==='1'||buttonText==='2'||buttonText==='3'||buttonText==='4'||buttonText==='5'||buttonText==='6'||buttonText==='7'||buttonText==='8'||buttonText==='9'||buttonText==='0'||buttonText==='+'
+            ||buttonText==='*'||buttonText==='%'||buttonText==='/'||buttonText==='.'||buttonText==='-')
+            {
+                store.value+=buttonText;
+            }
+            if(buttonText==='=')
+            {
+                store.value=eval(store.value)
+            }
+          
+            });
+        });
+        buttons.forEach(button => {
+            button.addEventListener('click', ()=> {
+                buttons.forEach(button => { 
+                    button.style.backgroundColor='';
+                });
+
+        var btn = button.innerText;
+            if(btn==='C')
+        {
+            store.value='';
+        }
+            else
+        {
+                button.style.backgroundColor='grey';
+        }
+            });
+            });  
+        
+     
+             
+        
+
+    </script>
+</body>
+
+    </script>
+</body>
+
+
+</html>
